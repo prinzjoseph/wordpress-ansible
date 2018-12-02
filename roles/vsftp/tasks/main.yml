@@ -1,0 +1,32 @@
+---
+
+- name: Back up original configuration file
+  command: mv /etc/vsftpd.conf /etc/vsftpd.conf.orig creates=/etc/vsftpd.conf.orig
+- name: Configuring vsftp
+  template:
+    src: vsftpd.conf.j2
+    dest: /etc/vsftpd.conf
+    owner: root
+    group: root
+    mode: "0644"
+- service: name=vsftpd state=restarted
+
+- name: Adding nologin shell
+  lineinfile:
+    state: present
+    dest: /etc/shells
+    line: "/usr/sbin/nologin"
+    regexp: "^/usr/sbin/nologin"
+    insertafter: EOF
+
+- name: Creating ftp user
+  user:
+    name: ftpuser
+    password: "{{ ftpuser_passwd }}"
+    groups: 
+     - ftp
+    state: present 
+    shell: /usr/sbin/nologin
+    system: no            
+    createhome: yes       
+    home: /var/www/wordpress

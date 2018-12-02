@@ -1,0 +1,5 @@
+---
+domain: <your_domain_here>
+wp_mysql_db: wordpress
+wp_mysql_user: wordpress
+wp_mysql_password: <your_password_here>
