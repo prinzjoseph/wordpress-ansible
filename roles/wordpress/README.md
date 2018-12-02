@@ -16,7 +16,7 @@ Variables for this role are included in defaults/main.yml.
 Role Templates
 --------------
 
-Template for this role is included in templates/virtualhost.conf.j2 
+Template for this role is included in templates/virtualhost.conf 
 
 
 License
