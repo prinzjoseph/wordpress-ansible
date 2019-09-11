@@ -1,7 +1,7 @@
 Role Name
 =========
 
-FTP Role
+Wordpress Role
 
 Requirements
 ------------
