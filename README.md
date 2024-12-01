@@ -1,1 +1,1 @@
-# Playbook for installing Wordpress
+# Ansible Playbook for installing Wordpress
